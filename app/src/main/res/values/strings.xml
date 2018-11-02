@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">AndroidUIandLogin-PeterJester</string>
+
+    <!--Login screen strings-->
+    <string name="act_login_msg">Login / SignUp</string>
+    <string name="edit_text_user">Email or ID</string>
+    <string name="edit_text_pass">Password</string>
+    <string name="btn_login">Login</string>
+    <string name="text_view_or">OR</string>
+    <string name="btn_create_user">Sign Up</string>
+
+    <!--Sign Up Activity Strings-->
+    <string name="signUpFirstName">First Name</string>
+    <string name="signUpLastName">Last Name</string>
+    <string name="signUpUserName">User Name</string>
+    <string name="signUpBirthday">Birthday</string>
+    <string name="signUpPhoneNumber">Phone Number</string>
+    <string name="signUpEmail">Email</string>
+    <string name="signUpPassword">Password</string>
+    <string name="signUpConfirm">Confirm</string>
+
+    <!--Login Successful Strings-->
+    <string name="loginWelcome">Welcome!</string>
+
+</resources>
+

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Colors automatically generated -->
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <!-- Other colors -->
+    <color name="primary_color">#4A312A</color>
+    <color name="primary_dark_color">#2F1D1A</color>
+    <color name="tan_background">#FFF7DA</color>
+
+    <color name="movie_category">#C51162</color>
+    <color name="movie_classification">#379237</color>
+    <color name="movie_rating">#03DAC6</color>
+    <color name="movie_year">#BB86FC</color>
+
+    <color name="pink_text">#e91e63</color>
+
+    <!-- colors for category activity layout -->
+    <color name="light_blue">#0288d1</color>
+    <color name="deep_orange">#d84315</color>
+    <color name="light_yellow">#ffff8d</color>
+    <color name="light_green"> #aed581 </color>
+    <color name="colorBackground">#1a237e</color>
+    <color name="textBackground">#0277bd</color>
+    <color name="whiteBackground">#fafafa</color>
+    <color name="oliveButton">#00897b</color>
+
+
+</resources>
