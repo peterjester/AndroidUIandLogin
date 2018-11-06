@@ -1,4 +1,4 @@
-package com.example.peterjester.androiduiandlogin_peterjester.activity.model.entity.dao;
+package com.example.peterjester.androiduiandlogin_peterjester.activity.model.dao;
 
 import java.util.ArrayList;
 

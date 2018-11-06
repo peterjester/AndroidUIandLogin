@@ -1,4 +1,4 @@
-package com.example.peterjester.androiduiandlogin_peterjester.activity.model.entity.dao.entity;
+package com.example.peterjester.androiduiandlogin_peterjester.activity.model.entity;
 
 public class UserProfile {
 

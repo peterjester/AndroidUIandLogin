@@ -1,4 +1,4 @@
-package com.example.peterjester.androiduiandlogin_peterjester.activity.model.entity.dao;
+package com.example.peterjester.androiduiandlogin_peterjester.activity.model.dao;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
