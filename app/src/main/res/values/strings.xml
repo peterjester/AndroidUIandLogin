@@ -21,6 +21,8 @@
 
     <!--Login Successful Strings-->
     <string name="loginWelcome">Welcome!</string>
+    <string name="loginName">Name</string>
+    <string name="loginViewAllUsers">View all users</string>
 
 </resources>
 

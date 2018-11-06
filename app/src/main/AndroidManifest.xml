@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.activity.MainActivity"
             android:label="Welcome">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,13 +19,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginSuccessActivity"
-            android:label="Login Successful">
-        </activity>
+            android:name=".activity.activity.LoginSuccessActivity"
+            android:label="Login Successful"></activity>
         <activity
-            android:name=".SignUpActivity"
-            android:label="Sign Up">
-        </activity>
+            android:name=".activity.activity.SignUpActivity"
+            android:label="Sign Up"></activity>
+        <activity android:name=".activity.activity.ViewAllUsersActivity"></activity>
     </application>
 
 </manifest>
