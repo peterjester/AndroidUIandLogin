@@ -26,7 +26,7 @@ public class DatabaseAccess extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         // Create the Movie table once the database is instantiated.
-//        db.execSQL(MovieTable.create());
+        db.execSQL(MovieTable.create());
     }
 
     @Override

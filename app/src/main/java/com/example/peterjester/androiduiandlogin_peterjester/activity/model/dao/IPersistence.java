@@ -2,11 +2,6 @@ package com.example.peterjester.androiduiandlogin_peterjester.activity.model.dao
 
 import java.util.ArrayList;
 
-/**
- * @author ezt157
- * It defines basic interface to support database operations over different entities/tables
- * @param <T>
- */
 public interface IPersistence<T> {
 
     public void insert(T t);

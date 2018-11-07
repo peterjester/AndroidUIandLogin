@@ -7,9 +7,8 @@ public class UserProfile {
     private String name;
     private String surname;
     private String username;
-//    private Date birthday;
+    private String birthday;
     private String phoneNumber;
     private String email;
-
 
 }
