@@ -11,6 +11,7 @@ public class UserProfile {
     private String phoneNumber;
     private String email;
 
+
     public UserProfile(String name, String surname, String username, String birthday, String phoneNumber, String email) {
         this.name = name;
         this.surname = surname;
