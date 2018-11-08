@@ -4,7 +4,6 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Movie;
 
 import com.example.peterjester.androiduiandlogin_peterjester.activity.model.entity.UserProfile;
 
@@ -70,36 +69,37 @@ public class UserProfilePersistence implements IPersistence{
     public ArrayList getDataFromDB() {
 
         // Create ArrayList of movies
-        ArrayList<Movie> movies = null;
+        ArrayList<UserProfile> users = null;
 
         // Instatiate the database.
         SQLiteDatabase sqLiteDatabase = databaseAccess.getWritableDatabase();
 
-        // Gather all the records found for the MOVIE table.
+        // Gather all the records found for the user table.
         Cursor cursor = sqLiteDatabase.rawQuery(UserTable.select(), null);
 
         // It will iterate since the first record gathered from the database.
         cursor.moveToFirst();
 
         // Check if there exist other records in the cursor
-        movies = new ArrayList<>();
+        users = new ArrayList<>();
 
         if(cursor != null && cursor.moveToFirst()){
 
             do {
-//                String title = cursor.getString(cursor.getColumnIndex(UserTable.COLUMN_NAME_TITLE));
-//                String category = cursor.getString(cursor.getColumnIndex(UserTable.COLUMN_NAME_CATEGORY));
-//                String rating = cursor.getString(cursor.getColumnIndex(UserTable.COLUMN_NAME_RATING));
-//                String year = cursor.getString(cursor.getColumnIndex(MovieTable.COLUMN_NAME_YEAR));
+                String name = cursor.getString(cursor.getColumnIndex(UserTable.COLUMN_NAME_NAME));
+                String surname = cursor.getString(cursor.getColumnIndex(UserTable.COLUMN_NAME_SURNAME));
+                String username = cursor.getString(cursor.getColumnIndex(UserTable.COLUMN_NAME_USERNAME));
+                String birthday = cursor.getString(cursor.getColumnIndex(UserTable.COLUMN_NAME_BIRTHDAY));
+                String phonenumber = cursor.getString(cursor.getColumnIndex(UserTable.COLUMN_NAME_PHONENUMBER));
+                String email = cursor.getString(cursor.getColumnIndex(UserTable.COLUMN_NAME_EMAIL));
 
                 // Convert to Movie object.
-//                UserProfile user = new UserProfile( )
-//                Movie movie = new Movie(title, category, rating, year);
-//                movies.add(movie);
+                UserProfile user = new UserProfile(name, surname, username, birthday, phonenumber, email);
+                users.add(user);
 
             } while (cursor.moveToNext()) ;
         }
 
-        return movies;
+        return users;
     }
 }
