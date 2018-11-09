@@ -3,6 +3,8 @@ package com.example.peterjester.androiduiandlogin_peterjester.activity.activity;
 import android.graphics.Movie;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.ListView;
 
@@ -15,8 +17,9 @@ import java.util.ArrayList;
 
 public class ViewAllUsersActivity extends AppCompatActivity {
 
-    private ListView userListView;
-    private UserAdapter userAdapter;
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
     private ArrayList<UserProfile> users;
 
     @Override
@@ -24,17 +27,22 @@ public class ViewAllUsersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_all_users);
 
-        userListView = (ListView) findViewById(R.id.userListView);
-        //movies = loadMovies();
+        mRecyclerView = (RecyclerView) findViewById(R.id.userListView);
 
+        // use this setting to improve performance if you know that changes
+        // in content do not change the layout size of the RecyclerView
+        mRecyclerView.setHasFixedSize(true);
+
+        // use a linear layout manager
+        mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+
+        // specify an adapter (see also next example)
         UserProfilePersistence persistenceProfile = new UserProfilePersistence(this);
         users = persistenceProfile.getDataFromDB();
+        mAdapter = new UserAdapter(users);
+        mRecyclerView.setAdapter(mAdapter);
 
-        userAdapter = new UserAdapter(this,
-                R.layout.custom_list_item,
-                users);
-
-        userListView.setAdapter(userAdapter);
 
     }
 
