@@ -18,6 +18,8 @@ public class UserTable {
     public static final String COLUMN_NAME_BIRTHDAY = "birthday";
     public static final String COLUMN_NAME_PHONENUMBER = "phoneNumber";
     public static final String COLUMN_NAME_EMAIL = "email";
+    public static final String COLUMN_NAME_PASSWORD = "password";
+
 
 
     public static String create(){
@@ -28,7 +30,9 @@ public class UserTable {
                 COLUMN_NAME_USERNAME + " TEXT," +
                 COLUMN_NAME_BIRTHDAY + " TEXT," +
                 COLUMN_NAME_PHONENUMBER + " TEXT," +
-                COLUMN_NAME_EMAIL + " TEXT)" );
+                COLUMN_NAME_EMAIL + " TEXT," +
+                COLUMN_NAME_PASSWORD + " TEXT)" );
+
     }
 
     public static String select(){

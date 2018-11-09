@@ -57,19 +57,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void setupListeners(){
         signUpButton.setOnClickListener(this);
         loginButton.setOnClickListener(this);
-//        signUpButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(MainActivity.this, SignUpActivity.class));
-//            }
-//        });
-//
-//        loginButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(MainActivity.this, LoginSuccessActivity.class));
-//            }
-//        });
     }
 
     private void allocateButtonsAndViews(){
@@ -114,6 +101,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             // Pass the user info as paramater to the next activity.
                             Intent intent = new Intent(MainActivity.this, LoginSuccessActivity.class);
                             intent.putExtra("USER_DATA", new UserData(user.getEmail(), user.getProviderId()));
+                            startActivity(intent);
 
                         } else {
                             // TODO Implemnt the validation in case password or user is wrong.
@@ -129,35 +117,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void signUp(String email, String password){
 
-        /*
-         * The entry point of the Firebase Authentication SDK.
-         * Obtain an instance of this class by calling getInstance()
-         */
-
-        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
-                    // If sign in sucessfull, display a message to the user.
-                    Log.d("USER_AUTH", "createUserWithEmailAndPassword.success");
-                    // Get user information.
-                    FirebaseUser user = mAuth.getCurrentUser();
-
-                    String msg = "Someone: "+user.getEmail()+" , ID: "+user.getProviderId();
-                    Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
-
-                    Intent intent = new Intent(MainActivity.this, LoginSuccessActivity.class);
-                    startActivity(intent);
-
-                }else{
-                    // TODO
-                    // If sign in fails, display a message to the user.
-                    Log.w("TAG", "createUserWithEmailAndPassword:failure", task.getException());
-                    Toast.makeText(MainActivity.this, "Authentication failed "+task.getException().getMessage() ,
-                            Toast.LENGTH_SHORT).show();
-
-                }
-            }
-        });
+        // Pass the user info as paramater to the next activity.
+        Intent intent = new Intent(MainActivity.this, SignUpActivity.class);
+        intent.putExtra("USER_DATA", new UserData(email, password));
+        startActivity(intent);
     }
 }

@@ -10,15 +10,17 @@ public class UserProfile {
     private String birthday;
     private String phoneNumber;
     private String email;
+    private String password;
 
 
-    public UserProfile(String name, String surname, String username, String birthday, String phoneNumber, String email) {
+    public UserProfile(String name, String surname, String username, String birthday, String phoneNumber, String email, String password) {
         this.name = name;
         this.surname = surname;
         this.username = username;
         this.birthday = birthday;
         this.phoneNumber = phoneNumber;
         this.email = email;
+        this.password = password;
     }
 
     public String getName() {
@@ -44,4 +46,6 @@ public class UserProfile {
     public String getEmail() {
         return email;
     }
+
+    public String getPassword() { return password; }
 }

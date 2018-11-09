@@ -92,9 +92,10 @@ public class UserProfilePersistence implements IPersistence{
                 String birthday = cursor.getString(cursor.getColumnIndex(UserTable.COLUMN_NAME_BIRTHDAY));
                 String phonenumber = cursor.getString(cursor.getColumnIndex(UserTable.COLUMN_NAME_PHONENUMBER));
                 String email = cursor.getString(cursor.getColumnIndex(UserTable.COLUMN_NAME_EMAIL));
+                String password = cursor.getString(cursor.getColumnIndex(UserTable.COLUMN_NAME_PASSWORD));
 
                 // Convert to Movie object.
-                UserProfile user = new UserProfile(name, surname, username, birthday, phonenumber, email);
+                UserProfile user = new UserProfile(name, surname, username, birthday, phonenumber, email, password);
                 users.add(user);
 
             } while (cursor.moveToNext()) ;
