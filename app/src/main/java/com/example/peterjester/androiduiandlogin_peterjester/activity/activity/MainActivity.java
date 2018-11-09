@@ -119,7 +119,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // Pass the user info as paramater to the next activity.
         Intent intent = new Intent(MainActivity.this, SignUpActivity.class);
-        intent.putExtra("USER_DATA", new UserData(email, password));
+
+        // check to make sure see if we can pass data
+        if (!email.matches("") || !password.matches("")) {
+            intent.putExtra("USER_DATA", new UserData(email, password));
+        }
+        else {
+            intent.putExtra("USER_DATA", new UserData("Email", "Password"));
+        }
+
         startActivity(intent);
     }
 }

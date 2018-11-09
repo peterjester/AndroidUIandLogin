@@ -1,6 +1,5 @@
 package com.example.peterjester.androiduiandlogin_peterjester.activity.activity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -8,7 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.peterjester.androiduiandlogin_peterjester.R;
@@ -29,13 +28,13 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
     private Button confirmButton = null;
 
-    private TextView fnameView = null;
-    private TextView surnameView = null;
-    private TextView usernameView = null;
-    private TextView birthdayView = null;
-    private TextView phoneView = null;
-    private TextView emailView = null;
-    private TextView passwordView = null;
+    private EditText fnameView = null;
+    private EditText surnameView = null;
+    private EditText usernameView = null;
+    private EditText birthdayView = null;
+    private EditText phoneView = null;
+    private EditText emailView = null;
+    private EditText passwordView = null;
 
     private String email = null;
     private String password = null;
@@ -69,8 +68,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         email = userData.getName();
         password = userData.getProvider(); // provider, but password in this instance
 
-        emailView.setText(email);
-        passwordView.setText(password);
+        emailView.setHint(email);
+        passwordView.setHint(password);
     }
 
     @Override
@@ -124,7 +123,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                     UserProfile userProfile = new UserProfile(first, last,
                             username, birthday, phone, email, password);
 
-                    userProfilePersistence.insert(user);
+                    userProfilePersistence.insert(userProfile);
 
                     Intent intent = new Intent(SignUpActivity.this, LoginSuccessActivity.class);
                     startActivity(intent);

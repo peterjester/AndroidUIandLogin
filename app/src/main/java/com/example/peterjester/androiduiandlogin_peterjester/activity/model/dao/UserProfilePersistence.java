@@ -37,6 +37,7 @@ public class UserProfilePersistence implements IPersistence{
         contentValues.put(UserTable.COLUMN_NAME_BIRTHDAY, user.getBirthday());
         contentValues.put(UserTable.COLUMN_NAME_PHONENUMBER, user.getPhoneNumber());
         contentValues.put(UserTable.COLUMN_NAME_EMAIL, user.getEmail());
+        contentValues.put(UserTable.COLUMN_NAME_PASSWORD, user.getPassword());
 
         // Insert the ContentValues into the Movie table.
         sqLiteDatabase.insert(UserTable.TABLE_NAME, null, contentValues);
@@ -94,7 +95,7 @@ public class UserProfilePersistence implements IPersistence{
                 String email = cursor.getString(cursor.getColumnIndex(UserTable.COLUMN_NAME_EMAIL));
                 String password = cursor.getString(cursor.getColumnIndex(UserTable.COLUMN_NAME_PASSWORD));
 
-                // Convert to Movie object.
+                // Convert to UserProfile object.
                 UserProfile user = new UserProfile(name, surname, username, birthday, phonenumber, email, password);
                 users.add(user);
 

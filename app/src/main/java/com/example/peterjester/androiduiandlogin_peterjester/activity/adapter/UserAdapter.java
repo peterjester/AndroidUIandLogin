@@ -46,10 +46,10 @@ public class UserAdapter extends ArrayAdapter {
         birthdayView.setText(user.getBirthday());
 
         TextView phoneView = (TextView) listItemView.findViewById(R.id.phoneView);
-        phoneView.setText(user.getName());
+        phoneView.setText(user.getPhoneNumber());
 
         TextView emailView = (TextView) listItemView.findViewById(R.id.emailView);
-        emailView.setText(user.getName());
+        emailView.setText(user.getEmail());
 
         return listItemView;
 
