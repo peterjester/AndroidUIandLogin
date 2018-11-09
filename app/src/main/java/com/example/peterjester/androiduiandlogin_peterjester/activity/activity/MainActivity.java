@@ -10,6 +10,8 @@ import android.widget.TextView;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.peterjester.androiduiandlogin_peterjester.activity.model.dao.UserProfilePersistence;
+import com.example.peterjester.androiduiandlogin_peterjester.activity.model.entity.UserProfile;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.*;
@@ -19,6 +21,8 @@ import com.example.peterjester.androiduiandlogin_peterjester.activity.model.enti
 
 import com.example.peterjester.androiduiandlogin_peterjester.R;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView userNameView = null;
@@ -26,6 +30,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private Button signUpButton = null;
     private Button loginButton = null;
+
+    private UserProfilePersistence persistenceUserProfile;
+    private ArrayList<UserProfile> userProfiles;
 
     // FirebaseAuth
     // The entry point of the Firebase Authentication SDK.
@@ -52,6 +59,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
          * Obtain an instance of this class by calling getInstance()
          */
         mAuth = FirebaseAuth.getInstance();
+        persistenceUserProfile = new UserProfilePersistence(this);
+        userProfiles = persistenceUserProfile.getDataFromDB();
     }
 
     private void setupListeners(){
@@ -104,6 +113,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             startActivity(intent);
 
                         } else {
+
+
                             // TODO Implemnt the validation in case password or user is wrong.
                             // If sign in fails, display a message to the user.
                             Log.w("TAG", "signInWithEmail:failure", task.getException());
@@ -113,6 +124,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         }
                     }
                 });
+    }
+
+    private void validateInput() {
+
+        UserProfile userProfile = null;
+
+        if(userProfiles != null && !userProfiles.isEmpty()){
+
+            String user = userNameView.getText().toString();
+            String password = passwordView.getText().toString();
+
+            for (UserProfile up : userProfiles){
+                if(up.getUsername().equals(user) ){
+                    userProfile = up;
+                }
+                break;
+            }
+            if(userProfile == null){
+                Toast.makeText(getApplicationContext(), R.string.notFound, Toast.LENGTH_LONG).show();
+            }else {
+                if(!userProfile.getPassword().equals(password)){
+                    Toast.makeText(getApplicationContext(), R.string.wrongPassword, Toast.LENGTH_LONG).show();
+                }else{
+                    Intent intent = new Intent(MainActivity.this, LoginSuccessActivity.class);
+                    intent.putExtra("USER", userProfile.getName());
+                    intent.putExtra("PASSWORD", userProfile.getPassword());
+                    startActivity(intent);
+                }
+            }
+        }
     }
 
     private void signUp(String email, String password){

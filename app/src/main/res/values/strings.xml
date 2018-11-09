@@ -24,5 +24,8 @@
     <string name="loginName">Name</string>
     <string name="loginViewAllUsers">View all users</string>
 
+    <string name="notFound">User Not Found!</string>
+    <string name="wrongPassword">Incorrect Password!</string>
+
 </resources>
 
