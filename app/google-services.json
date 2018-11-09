@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "559358071431",
+    "firebase_url": "https://androiduiandlogin.firebaseio.com",
+    "project_id": "androiduiandlogin",
+    "storage_bucket": "androiduiandlogin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:559358071431:android:a99f6095cc427006",
+        "android_client_info": {
+          "package_name": "com.example.peterjester.androiduiandlogin_peterjester"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "559358071431-u1v6e8979tvmjchdsbua7lv96a3pg4dv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQ4pG5yC2Br2AS5WQ_dqMrVqEox9nBcz0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
